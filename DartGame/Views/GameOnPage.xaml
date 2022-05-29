@@ -424,6 +424,17 @@
                     VerticalOptions="CenterAndExpand" />
 
                 <Label
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding Dart1ValueEntered}"
+                    Style="{StaticResource LabelTextColor}"
+                    Text="{Binding Dart1Value}"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label
                     Grid.Row="1"
                     Grid.Column="1"
                     FontAttributes="Bold"
@@ -435,6 +446,17 @@
                     VerticalOptions="CenterAndExpand" />
 
                 <Label
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding Dart2ValueEntered}"
+                    Style="{StaticResource LabelTextColor}"
+                    Text="{Binding Dart2Value}"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label
                     Grid.Row="2"
                     Grid.Column="1"
                     FontAttributes="Bold"
@@ -443,6 +465,17 @@
                     IsVisible="{Binding Dart3ValueEntered}"
                     Style="{StaticResource LabelTextColor}"
                     Text="3"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding Dart3ValueEntered}"
+                    Style="{StaticResource LabelTextColor}"
+                    Text="{Binding Dart3Value}"
                     VerticalOptions="CenterAndExpand" />
 
                 <Label

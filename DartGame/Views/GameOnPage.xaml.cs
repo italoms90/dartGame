@@ -111,6 +111,8 @@ namespace DartGame.Views
                 var doubleScored = int.Parse(number) * 2;
                 GameOnViewModel.CurrentScore += doubleScored;
                 GameOnViewModel.DoublePressed = false;
+
+                UpdateBoardDartPlayed($"D{number}");
             }
             else if (GameOnViewModel.TriplePressed)
             {
@@ -126,28 +128,15 @@ namespace DartGame.Views
 
                 GameOnViewModel.CurrentScore += tripleScored;
                 GameOnViewModel.TriplePressed = false;
+
+                UpdateBoardDartPlayed($"T{number}");
             }
             else
             {
                 var noScored = int.Parse(number);
                 GameOnViewModel.CurrentScore += noScored;
-            }                
 
-            _boardDartCount++;
-
-            if (_boardDartCount == 1)
-            {
-                GameOnViewModel.Dart1ValueEntered = true;
-            }
-
-            if (_boardDartCount == 2)
-            {
-                GameOnViewModel.Dart2ValueEntered = true;
-            }
-
-            if (_boardDartCount == 3)
-            {
-                GameOnViewModel.Dart3ValueEntered = true;
+                UpdateBoardDartPlayed(number);
             }
         }
 
@@ -390,6 +379,29 @@ namespace DartGame.Views
                     GameOnViewModel.PlayerTwo);
 
             GameOnViewModel.ClearForNextGame();
+        }
+
+        private void UpdateBoardDartPlayed(string noScored)
+        {
+            _boardDartCount++;
+
+            if (_boardDartCount == 1)
+            {
+                GameOnViewModel.Dart1ValueEntered = true;
+                GameOnViewModel.Dart1Value = noScored;
+            }
+
+            if (_boardDartCount == 2)
+            {
+                GameOnViewModel.Dart2ValueEntered = true;
+                GameOnViewModel.Dart2Value = noScored;
+            }
+
+            if (_boardDartCount == 3)
+            {
+                GameOnViewModel.Dart3ValueEntered = true;
+                GameOnViewModel.Dart3Value = noScored;
+            }
         }
 
         #endregion

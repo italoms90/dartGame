@@ -60,9 +60,13 @@ namespace DartGame.ViewModels
         private bool _doublePressed;
         private bool _triplePressed;
 
-        private bool _dart1ValueEntered;
+        private bool _dart1ValueEntered;        
         private bool _dart2ValueEntered;
         private bool _dart3ValueEntered;
+
+        private string _dart1Value;
+        private string _dart2Value;
+        private string _dart3Value;
 
         private int _currentScore;
 
@@ -362,7 +366,7 @@ namespace DartGame.ViewModels
                 _dart1ValueEntered = value;
                 OnPropertyChanged();
             }
-        }
+        }        
 
         public bool Dart2ValueEntered
         {
@@ -380,6 +384,36 @@ namespace DartGame.ViewModels
             set
             {
                 _dart3ValueEntered = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Dart1Value
+        {
+            get { return _dart1Value; }
+            set
+            {
+                _dart1Value = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Dart2Value
+        {
+            get { return _dart2Value; }
+            set
+            {
+                _dart2Value = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Dart3Value
+        {
+            get { return _dart3Value; }
+            set
+            {
+                _dart3Value = value;
                 OnPropertyChanged();
             }
         }
