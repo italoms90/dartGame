@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DartGame.Views.PlayersConfigPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="PlayerSelectionPage"
+    Title="{Binding Title}"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <Style x:Key="NumberButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#282623" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="Add_Clicked" Text="Add" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="#403F3D"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+
+            <ListView
+                x:Name="PlayersListView"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="true"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                ItemSelected="OnItemSelected"
+                ItemsSource="{Binding Players}"
+                RefreshCommand="{Binding LoadPlayersCommand}"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Clicked="DeleteOption_Clicked"
+                                    CommandParameter="{Binding PlayerId}"
+                                    Text="Delete" />
+                                <MenuItem
+                                    Clicked="EditOption_Clicked"
+                                    CommandParameter="{Binding PlayerId}"
+                                    Text="Edit" />
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="10">
+                                <Label
+                                    Font="Bold, 25"
+                                    LineBreakMode="NoWrap"
+                                    Text="{Binding PlayerName}"
+                                    TextColor="White" />
+
+                                <Label
+                                    FontSize="18"
+                                    LineBreakMode="NoWrap"
+                                    Text="{Binding PlayerScore}"
+                                    TextColor="White" />
+                                
+                                <Label
+                                    FontSize="18"
+                                    LineBreakMode="NoWrap"
+                                    Text="{Binding BestAvgScore, StringFormat='Best Avg: {0}'}"
+                                    TextColor="White" />
+
+                                <Label
+                                    FontSize="18"
+                                    LineBreakMode="NoWrap"
+                                    Text="{Binding HighestScore, StringFormat='Highest Score: {0}'}"
+                                    TextColor="White" />
+                                
+                                <Label
+                                    FontSize="18"
+                                    LineBreakMode="NoWrap"
+                                    Text="{Binding MinimumDartsUsed, StringFormat='M.Darts Used: {0}'}"
+                                    TextColor="White" />
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

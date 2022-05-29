@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DartGame.Views.GamePointsConfigPage"
+             Title="GAME POINTS"
+             x:Name="GamePointsSelectionPage">
+
+    <ContentPage.Resources>
+        <Style x:Key="PointsButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="BackgroundColor" Value="#2c3e50" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <Grid BackgroundColor="#403F3D">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Button
+            x:Name="GamePoints101"
+            Grid.Row="0"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="101" />        
+        <Button
+            x:Name="GamePoints201"
+            Grid.Row="1"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="201" />
+        <Button
+            x:Name="GamePoints301"
+            Grid.Row="2"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="301" />
+        <Button
+            x:Name="GamePoints401"
+            Grid.Row="3"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="401" />
+        <Button
+            x:Name="GamePoints501"
+            Grid.Row="4"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="501" />
+        <Button
+            x:Name="GamePoints601"
+            Grid.Row="5"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="601" />
+        <Button
+            x:Name="GamePoints701"
+            Grid.Row="6"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="701" />
+        <Button
+            x:Name="GamePoints801"
+            Grid.Row="7"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="801" />
+        <Button
+            x:Name="GamePoints901"
+            Grid.Row="8"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="901" />
+        <Button
+            x:Name="GamePoints1001"
+            Grid.Row="9"
+            Style="{StaticResource PointsButtonStyle}"
+            Clicked="GamePoints_Clicked"
+            Text="1001" />
+
+    </Grid>
+
+</ContentPage>

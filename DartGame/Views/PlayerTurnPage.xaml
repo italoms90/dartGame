@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DartGame.Views.PlayerTurnPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="PlayerTurnDetailsPage"
+    Title="Player Turns"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="#403F3D"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+
+            <ListView
+                x:Name="PlayersListView"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="true"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                ItemsSource="{Binding GameTurns}"
+                RefreshCommand="{Binding LoadPlayerTurnsCommand}"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+
+                                <Label
+                                    Font="Bold, 25"
+                                    HorizontalOptions="Start"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemTextStyle}"
+                                    Text="{Binding TurnLineNo}"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Font="Bold, 35"
+                                    HorizontalOptions="Center"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemTextStyle}"
+                                    Text="{Binding TurnScore}"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

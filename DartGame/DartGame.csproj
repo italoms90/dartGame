@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\GameOnPage.xaml.cs">
+      <DependentUpon>GameOnPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GamePointsConfigPage.xaml.cs">
+      <DependentUpon>GamePointsConfigPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayerDetailPage.xaml.cs">
+      <DependentUpon>PlayerDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayerTurnPage.xaml.cs">
+      <DependentUpon>PlayerTurnPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayersConfigPage.xaml.cs">
+      <DependentUpon>PlayersConfigPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LegConfigPage.xaml.cs">
+      <DependentUpon>LegConfigPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameConfigPage.xaml.cs">
+      <DependentUpon>GameConfigPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\PlayerDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

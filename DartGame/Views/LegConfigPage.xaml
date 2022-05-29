@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DartGame.Views.LegConfigPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="LegSelectionPage"
+    Title="NUMBER OF LEGS"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <Style x:Key="NumberButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="BackgroundColor" Value="#2c3e50" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid Padding="20" BackgroundColor="#403F3D">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="350" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0"            
+                x:Name="Legs1"
+                Text="1"
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="0" Grid.Column="1"
+                x:Name="Legs2"
+                Text="2" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="0" Grid.Column="2"
+                x:Name="Legs3"
+                Text="3" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="0" Grid.Column="3"
+                x:Name="Legs4"
+                Text="4" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="0" Grid.Column="4"
+                x:Name="Legs5"
+                Text="5" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="1" Grid.Column="0"
+                x:Name="Legs6"
+                Text="6" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="1" Grid.Column="1"
+                x:Name="Legs7"
+                Text="7" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="1" Grid.Column="2"
+                x:Name="Legs8"
+                Text="8" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="1" Grid.Column="3"
+                x:Name="Legs9"
+                Text="9" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="1" Grid.Column="4"
+                x:Name="Legs10"
+                Text="10" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="2" Grid.Column="0"
+                x:Name="Legs11"
+                Text="11" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="2" Grid.Column="1"
+                x:Name="Legs12"
+                Text="12" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="2" Grid.Column="2"
+                x:Name="Legs13"
+                Text="13" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="2" Grid.Column="3"
+                x:Name="Legs14"
+                Text="14" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="2" Grid.Column="4"
+                x:Name="Legs15"
+                Text="15" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="3" Grid.Column="0"
+                x:Name="Legs16"
+                Text="16" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="3" Grid.Column="1"
+                x:Name="Legs17"
+                Text="17" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="3" Grid.Column="2"
+                x:Name="Legs18"
+                Text="18" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="3" Grid.Column="3"
+                x:Name="Legs19"
+                Text="19" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+        <Button Grid.Row="3" Grid.Column="4"
+                x:Name="Legs20"
+                Text="20" 
+                Style="{StaticResource NumberButtonStyle}"
+                Clicked="LegNum_Clicked"/>
+    </Grid>
+
+</ContentPage>

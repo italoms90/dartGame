@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DartGame.Views.GameOnPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="GameOnDetailsPage"
+    Title=""
+    NavigationPage.HasNavigationBar="false"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+
+        <Style x:Key="LabelTextColor" TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
+        <Style x:Key="BoardButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Body" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="BackgroundColor" Value="#2c3e50" />
+        </Style>
+
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="#403F3D">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="#403F3D">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" ClassId="PlayerOne">
+                <Grid BackgroundColor="{Binding PlayerOneColor}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!--  First Row  -->
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            ClassId="PlayerOneLegsWon"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerOneLegsWon, StringFormat='LegsWon: {0}'}" />
+                        <!--  Text="{Binding PlayerOneLegsWon}" />  -->
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            ClassId="PlayerOneName"
+                            Font="Bold, 30"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerOneName}" />
+                        <!--  Text="{Binding PlayerOneName}" />  -->
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            ClassId="PlayerOneAvgScore"
+                            FontSize="20"
+                            HorizontalOptions="End"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerOneAvgScore, StringFormat='Avg: {0}'}" />
+                        <!--  Text="{Binding PlayerOneAvgScore}" />  -->
+                        <!--  Second Row  -->
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            ClassId="PlayerOneScore"
+                            Font="Bold, 35"
+                            HorizontalOptions="CenterAndExpand"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerOneGameScore}" />
+                        <!--  Text="{Binding PlayerOneGameScore}" />  -->
+                        <!--  Third Row  -->
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            ClassId="PlayerOneDart1"
+                            Font="Bold, 25"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerOneDart1ToWin}"
+                            VerticalOptions="End" />
+                        <!--  Text="{Binding PlayerOneDart1ToWin}" />  -->
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            ClassId="PlayerOneDart2"
+                            Font="Bold, 25"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerOneDart2ToWin}"
+                            VerticalOptions="End" />
+                        <!--  Text="{Binding PlayerOneDart2ToWin}"/>  -->
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            ClassId="PlayerOneDart3"
+                            Font="Bold, 25"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerOneDart3ToWin}"
+                            VerticalOptions="End" />
+                        <!--  Text="{Binding PlayerOneDart1ToWin}" />  -->
+                    </Grid>
+                </Grid>
+                <!--  Player One Tapped Event  -->
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PlayerOne_Tapped" />
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" ClassId="PlayerTwo">
+                <Grid BackgroundColor="{Binding PlayerTwoColor}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!--  First Row  -->
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            ClassId="PlayerTwoLegsWon"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerTwoLegsWon, StringFormat='LegsWon: {0}'}" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            ClassId="PlayerTwoName"
+                            Font="Bold, 30"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerTwoName}" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            ClassId="PlayerTwoAvgScore"
+                            FontSize="20"
+                            HorizontalOptions="End"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerTwoAvgScore, StringFormat='Avg: {0}'}" />
+                        <!--  Second Row  -->
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            ClassId="PlayerTwoScore"
+                            Font="Bold, 35"
+                            HorizontalOptions="CenterAndExpand"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerTwoGameScore}" />
+                        <!--  Third Row  -->
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            ClassId="PlayerTwoDart1"
+                            Font="Bold, 25"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerTwoDart1ToWin}"
+                            VerticalOptions="End" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            ClassId="PlayerTwoDart2"
+                            Font="Bold, 25"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerTwoDart2ToWin}"
+                            VerticalOptions="End" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            ClassId="PlayerTwoDart3"
+                            Font="Bold, 25"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource LabelTextColor}"
+                            Text="{Binding PlayerTwoDart3ToWin}"
+                            VerticalOptions="End" />
+
+                    </Grid>
+                </Grid>
+                <!--  Player Two Tapped Event  -->
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PlayerTwo_Tapped" />
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            BackgroundColor="#403F3D"
+            IsVisible="{Binding IsNumPadVisible}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    FontSize="35"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource LabelTextColor}"
+                    Text="{Binding CurrentScore}"
+                    VerticalOptions="CenterAndExpand" />
+                <!--  Text="{Binding CurrentScore}"  -->
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    ClassId="BOARD"
+                    Clicked="BoardSwitch_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="BOARD" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ClassId="1"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="1" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ClassId="2"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="2" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    ClassId="3"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="3" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    ClassId="Back"
+                    Clicked="Back_Clicked"
+                    FontSize="Body"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="BACK" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    ClassId="4"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="4" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    ClassId="5"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="5" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    ClassId="6"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="6" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    ClassId="Clear"
+                    Clicked="Clear_Clicked"
+                    FontSize="Body"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="CLEAR" />
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ClassId="7"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="7" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ClassId="8"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="8" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    ClassId="9"
+                    Clicked="Number_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="9" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Clicked="Bust_Clicked"
+                    FontSize="Body"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="BUST" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    ClassId="0"
+                    Clicked="Number_Clicked"
+                    FontSize="Body"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="0" />
+                <Button
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="3"
+                    Clicked="End_Score"
+                    FontSize="Body"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="DONE" />
+            </Grid>
+
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            BackgroundColor="#403F3D"
+            IsVisible="{Binding IsBoardVisible}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="0"
+                    ClassId="CLEAR"
+                    Clicked="Clear_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="CLEAR" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding Dart1ValueEntered}"
+                    Style="{StaticResource LabelTextColor}"
+                    Text="1"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding Dart2ValueEntered}"
+                    Style="{StaticResource LabelTextColor}"
+                    Text="2"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding Dart3ValueEntered}"
+                    Style="{StaticResource LabelTextColor}"
+                    Text="3"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    FontSize="35"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource LabelTextColor}"
+                    Text="{Binding CurrentScore}"
+                    VerticalOptions="CenterAndExpand" />
+
+                <Button
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="4"
+                    ClassId="BOARD"
+                    Clicked="BoardSwitch_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="BOARD" />
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="{Binding DoublePressedColor}"
+                    ClassId="DOUBLE"
+                    CornerRadius="15"
+                    FontSize="Large"
+                    Pressed="Double_Pressed"
+                    Text="DOUBLE"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="{Binding TriplePressedColor}"
+                    ClassId="TRIPLE"
+                    CornerRadius="15"
+                    FontSize="Large"
+                    Pressed="Triple_Pressed"
+                    Text="TRIPLE"
+                    TextColor="White" />
+            </Grid>
+
+            <Grid Grid.Row="2">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ClassId="1"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="1" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ClassId="2"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="2" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    ClassId="3"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="3" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    ClassId="4"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="4" />
+            </Grid>
+
+            <Grid Grid.Row="3">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ClassId="5"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="5" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ClassId="6"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="6" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    ClassId="7"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="7" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    ClassId="8"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="8" />
+            </Grid>
+
+            <Grid Grid.Row="4">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ClassId="9"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="9" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ClassId="10"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="10" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    ClassId="11"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="11" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    ClassId="12"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="12" />
+            </Grid>
+
+            <Grid Grid.Row="5">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ClassId="13"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="13" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ClassId="14"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="14" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    ClassId="15"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="15" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    ClassId="16"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="16" />
+            </Grid>
+
+            <Grid Grid.Row="6">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ClassId="17"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="17" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    ClassId="18"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="18" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    ClassId="19"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="19" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    ClassId="20"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="20" />
+            </Grid>
+
+            <Grid Grid.Row="7">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    ClassId="BUST"
+                    Clicked="Bust_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="BUST" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    ClassId="25"
+                    Clicked="BoardNumber_Clicked"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="BULL" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    ClassId="DONE"
+                    Clicked="End_Score"
+                    Style="{StaticResource BoardButtonStyle}"
+                    Text="DONE" />
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

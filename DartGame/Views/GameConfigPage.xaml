@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DartGame.Views.GameConfigPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="GameDetailsPage"
+    Title="{Binding Title}"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <Style x:Key="PlayerButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="45" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="BackgroundColor" Value="#282623" />
+        </Style>
+
+        <Style x:Key="ConfigButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="BackgroundColor" Value="#2c3e50" />
+        </Style>
+
+        <Style x:Key="StartButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="BackgroundColor" Value="#0C4F3A" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="#403F3D">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.75*" />
+            <RowDefinition Height="0.75*" />
+            <RowDefinition Height="0.65*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="Player1"
+                Grid.Row="1"
+                Grid.Column="1"
+                ClassId="PlayerOne"
+                Clicked="Player_Clicked"
+                Font="Bold"
+                IsVisible="True"
+                Style="{StaticResource PlayerButtonStyle}"
+                Text="{Binding PlayerOneName}" />
+
+            <Button
+                x:Name="Player2"
+                Grid.Row="1"
+                Grid.Column="3"
+                ClassId="PlayerTwo"
+                Clicked="Player_Clicked"
+                Font="Bold"
+                IsVisible="True"
+                Style="{StaticResource PlayerButtonStyle}"
+                Text="{Binding PlayerTwoName}" />
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="GameStartPoint"
+                Grid.Row="1"
+                Grid.Column="1"
+                Clicked="GameStartPoint_Clicked"
+                Font="Bold"
+                FontSize="{Binding PointsToWinFontSize}"
+                IsVisible="True"
+                Style="{StaticResource ConfigButtonStyle}"
+                Text="{Binding PointsToWin}" />
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="LegsToWin"
+                Grid.Row="1"
+                Grid.Column="1"
+                Clicked="LegsToWin_Clicked"
+                Font="Bold"
+                FontSize="{Binding LegsToWinFontSize}"
+                IsVisible="True"
+                Style="{StaticResource ConfigButtonStyle}"
+                Text="{Binding LegsToWin}" />
+
+        </Grid>
+
+        <Grid Grid.Row="3">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="GameStart"
+                Grid.Row="1"
+                Grid.Column="1"
+                Clicked="GameStart_Clicked"
+                Font="Bold, 35"
+                IsVisible="True"
+                Style="{StaticResource StartButtonStyle}"
+                Text="Start" />
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DartGame.Views.PlayerDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="Cancel_Clicked" Text="Cancel" />
+        <ToolbarItem Clicked="Save_Clicked" Text="Save" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout
+            Padding="15"
+            BackgroundColor="#2c3e50"
+            Spacing="20">
+
+            <Entry
+                x:Name="PlayerName"
+                FontSize="Medium"
+                Placeholder="PlayerName"
+                Text="{Binding PlayerName}"
+                TextColor="White" />
+
+            <Entry
+                x:Name="GamesWon"
+                FontSize="Medium"
+                Keyboard="Numeric"
+                Placeholder="GamesWon"
+                Text="{Binding GamesWon}"
+                TextColor="White" />
+
+            <Entry
+                x:Name="GamesLost"
+                FontSize="Medium"
+                Keyboard="Numeric"
+                Placeholder="GamesLost"
+                Text="{Binding GamesLost}"
+                TextColor="White" />
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
