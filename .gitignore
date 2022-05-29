@@ -3,16 +3,15 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+bin/
+.vs/
+
 # User-specific files
 *.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
-DartGame/bin
-DartGame/obj
-DartGame.Android/bin
-DartGame.Andorid/obj
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
