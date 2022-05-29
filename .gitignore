@@ -11,7 +11,7 @@ bin/
 *.suo
 *.user
 *.userosscache
-*.sln.docstates
+*.sln.docstates 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
