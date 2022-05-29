@@ -20,6 +20,7 @@ bin/
 mono_crash.*
 
 # Build results
+Resources/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
